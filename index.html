@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💗 Para ti, mi niñita helmoshita 💗</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;1,400;1,600&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ========== PANTALLA DE ACCESO ========== -->
+<div id="lockScreen" class="lock-screen">
+  <!-- Adornos decorativos en la pantalla de lock -->
+  <div class="lock-decor lock-bow-1">🎀</div>
+  <div class="lock-decor lock-bow-2">🎀</div>
+  <div class="lock-decor lock-flower-1">🌸</div>
+  <div class="lock-decor lock-flower-2">🌸</div>
+  <div class="lock-decor lock-star-1">✨</div>
+  <div class="lock-decor lock-star-2">⭐</div>
+  <div class="lock-decor lock-heart-1">💗</div>
+  <div class="lock-decor lock-heart-2">💕</div>
+  <div class="lock-floating-hearts" id="lockFloatingHearts"></div>
+
+  <div class="lock-card">
+    <div class="lock-card-deco-top">✿ ♡ ✿</div>
+    <div class="lock-title-wrap">
+      <span class="lock-emoji-top">🌸💗🌸</span>
+      <h1 class="lock-title">Para ti, mi amor</h1>
+      <p class="lock-subtitle">cartita dedikadita a ti mi niñita bella</p>
+      <div class="lock-divider">— ♡ —</div>
+    </div>
+
+    <p class="lock-instruction">Ingresa el código secretito para entrar 🔑💕</p>
+
+    <!-- Dígitos del código estilo stickers -->
+    <div class="lock-digits-wrap">
+      <div class="lock-digit-input-group">
+        <input class="lock-digit" type="tel" maxlength="1" pattern="[0-9]" inputmode="numeric" id="d0" autocomplete="off">
+        <input class="lock-digit" type="tel" maxlength="1" pattern="[0-9]" inputmode="numeric" id="d1" autocomplete="off">
+        <input class="lock-digit" type="tel" maxlength="1" pattern="[0-9]" inputmode="numeric" id="d2" autocomplete="off">
+        <input class="lock-digit" type="tel" maxlength="1" pattern="[0-9]" inputmode="numeric" id="d3" autocomplete="off">
+        <input class="lock-digit" type="tel" maxlength="1" pattern="[0-9]" inputmode="numeric" id="d4" autocomplete="off">
+        <input class="lock-digit" type="tel" maxlength="1" pattern="[0-9]" inputmode="numeric" id="d5" autocomplete="off">
+      </div>
+    </div>
+
+    <button class="lock-btn" id="lockBtn">
+      <span>Entrar 💖</span>
+    </button>
+
+    <p class="lock-error" id="lockError">✦ Código incorrecto, mi amor... inténtalo de nuevo 🥺💔 ✦</p>
+    <div class="lock-card-deco-bottom">♡ ✿ ♡ ✿ ♡</div>
+  </div>
+</div>
+
+<!-- ========== CONFETI (aparece al ingresar código correcto) ========== -->
+<div id="confettiContainer"></div>
+
+<!-- ========== PORTAFOLIO PRINCIPAL ========== -->
+<div id="mainPortfolio" class="main-portfolio hidden">
+
+  <!-- Adornos flotantes / decorativos del fondo -->
+  <div class="bg-deco" id="bgDeco">
+    <!-- Adornos clickeables (explosión grande) -->
+    <span class="deco-item clickable-deco bow-deco" style="top:5%;left:3%">🎀</span>
+    <span class="deco-item clickable-deco bow-deco" style="top:8%;right:4%">🎀</span>
+    <span class="deco-item clickable-deco flower-deco" style="top:15%;left:8%">🌸</span>
+    <span class="deco-item clickable-deco flower-deco" style="top:12%;right:9%">🌺</span>
+    <span class="deco-item clickable-deco butterfly-deco" style="top:20%;left:1%">🦋</span>
+    <span class="deco-item clickable-deco butterfly-deco" style="top:25%;right:2%">🦋</span>
+    <span class="deco-item clickable-deco heart-deco" style="top:30%;left:5%">💗</span>
+    <span class="deco-item clickable-deco heart-deco" style="top:35%;right:5%">💖</span>
+    <span class="deco-item clickable-deco star-deco" style="top:40%;left:2%">⭐</span>
+    <span class="deco-item clickable-deco star-deco" style="top:45%;right:3%">✨</span>
+    <span class="deco-item clickable-deco cherry-deco" style="top:55%;left:4%">🍒</span>
+    <span class="deco-item clickable-deco cherry-deco" style="top:60%;right:4%">🍒</span>
+    <span class="deco-item clickable-deco bow-deco" style="top:70%;left:2%">🎀</span>
+    <span class="deco-item clickable-deco flower-deco" style="top:75%;right:3%">🌸</span>
+    <span class="deco-item clickable-deco heart-deco" style="top:80%;left:6%">💕</span>
+    <span class="deco-item clickable-deco star-deco" style="top:85%;right:6%">🌟</span>
+    <span class="deco-item clickable-deco butterfly-deco" style="top:90%;left:3%">🦋</span>
+    <span class="deco-item clickable-deco flower-deco" style="top:92%;right:5%">🌺</span>
+    <!-- Adornos superiores centrados -->
+    <span class="deco-item clickable-deco bow-deco" style="top:2%;left:30%">🎀</span>
+    <span class="deco-item clickable-deco bow-deco" style="top:2%;right:30%">🎀</span>
+    <span class="deco-item clickable-deco star-deco" style="top:3%;left:50%">✨</span>
+    <!-- Perlas y adornos extra -->
+    <span class="deco-item clickable-deco pearl-deco" style="top:48%;left:1%">🤍</span>
+    <span class="deco-item clickable-deco pearl-deco" style="top:52%;right:1%">🤍</span>
+    <span class="deco-item clickable-deco cherry-deco" style="top:65%;left:7%">🍓</span>
+    <span class="deco-item clickable-deco flower-deco" style="top:68%;right:7%">🌷</span>
+  </div>
+
+  <!-- HEADER -->
+  <header class="main-header">
+    <div class="header-deco-left">🌸🎀🌸</div>
+    <div class="header-content">
+      <h1 class="main-title">✨💗 Desliza para mí niñita helmoshita ✨💗</h1>
+      <p class="main-subtitle">cartita dedikadita a tii (≧▽≦)💗🌸✨️</p>
+    </div>
+    <div class="header-deco-right">🌸🎀🌸</div>
+  </header>
+
+  <!-- GALERÍA DE IMÁGENES -->
+  <div class="gallery-wrap">
+    <!-- Botón anterior -->
+    <button class="nav-btn prev-btn" id="prevBtn" aria-label="Anterior">
+      <span class="nav-arrow">❮</span>
+    </button>
+    
+    <!-- Carousel -->
+    <div class="carousel" id="carousel">
+
+      <!-- ===== 50 SLIDES ===== -->
+      <!-- CONFIGURABLE: Cambia "Moon1.webp" ... "Moon50.webp" por tus nombres de imagen -->
+      <!-- Las imágenes deben estar en la carpeta assets/ -->
+
+      <div class="slide active" data-index="0">
+        <img src="assets/Moon1.webp" alt="Moon 1" loading="eager">
+        <div class="overlay">I love you very much forever my gorgeous girl 🥹💗🌸</div>
+      </div>
+      <div class="slide" data-index="1">
+        <img src="assets/Moon2.webp" alt="Moon 2" loading="lazy">
+        <div class="overlay">tú eres mi vidita entera pol siempre &lt;3 💗🌟</div>
+      </div>
+      <div class="slide" data-index="2">
+        <img src="assets/Moon3.webp" alt="Moon 3" loading="lazy">
+        <div class="overlay">TE AMOO mushísimo mi niñita helmoshita de todito mi korashon HEHE (≧▽≦) 💗💞</div>
+      </div>
+      <div class="slide" data-index="3">
+        <img src="assets/Moon4.webp" alt="Moon 4" loading="lazy">
+        <div class="overlay">Siempre vas a embelleshel mi vidita entera kon tu precioshísima perfección &lt;3 💗🩷✨️</div>
+      </div>
+      <div class="slide" data-index="4">
+        <img src="assets/Moon5.webp" alt="Moon 5" loading="lazy">
+        <div class="overlay">Bem juntitos pol siempre mi my gud girl of my life HEHE ;) 💗💕</div>
+      </div>
+      <div class="slide" data-index="5">
+        <img src="assets/Moon6.webp" alt="Moon 6" loading="lazy">
+        <div class="overlay">Siempre te amaré infinitash eternidades!! mi bellíshima bebita siempre perfecta de mi korashon 🥹💗🌸✨️</div>
+      </div>
+      <div class="slide" data-index="6">
+        <img src="assets/Moon7.webp" alt="Moon 7" loading="lazy">
+        <div class="overlay">Eres mi sueño hecho realidad, mi May hermosa 💗✨</div>
+      </div>
+      <div class="slide" data-index="7">
+        <img src="assets/Moon8.webp" alt="Moon 8" loading="lazy">
+        <div class="overlay">Mi corazón late solo por ti, mi niñita perfecta 🥹💖</div>
+      </div>
+      <div class="slide" data-index="8">
+        <img src="assets/Moon9.webp" alt="Moon 9" loading="lazy">
+        <div class="overlay">Contigo todo es más bello, mi May preciosa 🌸💗</div>
+      </div>
+      <div class="slide" data-index="9">
+        <img src="assets/Moon10.webp" alt="Moon 10" loading="lazy">
+        <div class="overlay">Eres la luz de mi vida entera, mi amor eterno May 💕🌟</div>
+      </div>
+      <div class="slide" data-index="10">
+        <img src="assets/Moon11.webp" alt="Moon 11" loading="lazy">
+        <div class="overlay">Te quiero más cada día que pasa, mi May adorada 🥰💗</div>
+      </div>
+      <div class="slide" data-index="11">
+        <img src="assets/Moon12.webp" alt="Moon 12" loading="lazy">
+        <div class="overlay">Eres tan perfecta que me quedo sin palabras, May 💖✨</div>
+      </div>
+      <div class="slide" data-index="12">
+        <img src="assets/Moon13.webp" alt="Moon 13" loading="lazy">
+        <div class="overlay">Mi corazón es tuyo pol siempre, mi niñita bella 💗🌸</div>
+      </div>
+      <div class="slide" data-index="13">
+        <img src="assets/Moon14.webp" alt="Moon 14" loading="lazy">
+        <div class="overlay">Gracias por existir en mi vida, mi May hermosa 🥹💕</div>
+      </div>
+      <div class="slide" data-index="14">
+        <img src="assets/Moon15.webp" alt="Moon 15" loading="lazy">
+        <div class="overlay">Eres mi toda mi felicidad, mi amor infinito May 💗🌺</div>
+      </div>
+      <div class="slide" data-index="15">
+        <img src="assets/Moon16.webp" alt="Moon 16" loading="lazy">
+        <div class="overlay">Para ti todo lo hermoso del mundo, mi May celestial 🌸💖</div>
+      </div>
+      <div class="slide" data-index="16">
+        <img src="assets/Moon17.webp" alt="Moon 17" loading="lazy">
+        <div class="overlay">Siempre contigo, siempre tuyo, siempre enamorado de ti May 💗💞</div>
+      </div>
+      <div class="slide" data-index="17">
+        <img src="assets/Moon18.webp" alt="Moon 18" loading="lazy">
+        <div class="overlay">Eres mi mayor tesoro en esta vida, mi niñita May 🥰🌟</div>
+      </div>
+      <div class="slide" data-index="18">
+        <img src="assets/Moon19.webp" alt="Moon 19" loading="lazy">
+        <div class="overlay">Mi amor por ti no tiene fin ni límite, mi May querida 💕✨</div>
+      </div>
+      <div class="slide" data-index="19">
+        <img src="assets/Moon20.webp" alt="Moon 20" loading="lazy">
+        <div class="overlay">Eres perfecta en absolutamente todito, mi May adorada 💗🌸</div>
+      </div>
+      <div class="slide" data-index="20">
+        <img src="assets/Moon21.webp" alt="Moon 21" loading="lazy">
+        <div class="overlay">Con tu sonrisa iluminas mis días enteros, mi amor May 🥹💖</div>
+      </div>
+      <div class="slide" data-index="21">
+        <img src="assets/Moon22.webp" alt="Moon 22" loading="lazy">
+        <div class="overlay">Eres mi cielo, mi sol, mi luna, todo, mi May bella 💗🌙</div>
+      </div>
+      <div class="slide" data-index="22">
+        <img src="assets/Moon23.webp" alt="Moon 23" loading="lazy">
+        <div class="overlay">Mi amor crece más y más cada día, mi niñita preciosa 💕🌸</div>
+      </div>
+      <div class="slide" data-index="23">
+        <img src="assets/Moon24.webp" alt="Moon 24" loading="lazy">
+        <div class="overlay">Eres lo más hermoso que me ha pasado, mi May querida 🥰💗</div>
+      </div>
+      <div class="slide" data-index="24">
+        <img src="assets/Moon25.webp" alt="Moon 25" loading="lazy">
+        <div class="overlay">Mitad del camino... y sigues siendo mi todo, mi May 💗✨🎀</div>
+      </div>
+      <div class="slide" data-index="25">
+        <img src="assets/Moon26.webp" alt="Moon 26" loading="lazy">
+        <div class="overlay">Tu belleza me quita el aliento cada vez más, mi May 🌺💖</div>
+      </div>
+      <div class="slide" data-index="26">
+        <img src="assets/Moon27.webp" alt="Moon 27" loading="lazy">
+        <div class="overlay">Eres mi angelita del cielo, mi May hermosa siempre 🥹🌸</div>
+      </div>
+      <div class="slide" data-index="27">
+        <img src="assets/Moon28.webp" alt="Moon 28" loading="lazy">
+        <div class="overlay">Me enamoro de ti toditos los días, mi amor May 💗💞</div>
+      </div>
+      <div class="slide" data-index="28">
+        <img src="assets/Moon29.webp" alt="Moon 29" loading="lazy">
+        <div class="overlay">Eres mi musa, mi poema, mi canción, mi May adorada 💕✨</div>
+      </div>
+      <div class="slide" data-index="29">
+        <img src="assets/Moon30.webp" alt="Moon 30" loading="lazy">
+        <div class="overlay">30 imágenes... y en cada una más enamorado, mi May 💗🌸🥰</div>
+      </div>
+      <div class="slide" data-index="30">
+        <img src="assets/Moon31.webp" alt="Moon 31" loading="lazy">
+        <div class="overlay">Eres mi dulce sueño hecho real, mi May preciosa 🌙💗</div>
+      </div>
+      <div class="slide" data-index="31">
+        <img src="assets/Moon32.webp" alt="Moon 32" loading="lazy">
+        <div class="overlay">Contigo hasta el infinito y más allá, mi niñita May 💖🌟</div>
+      </div>
+      <div class="slide" data-index="32">
+        <img src="assets/Moon33.webp" alt="Moon 33" loading="lazy">
+        <div class="overlay">Eres la razón de mi felicidad completa, mi May bella 🥹💗</div>
+      </div>
+      <div class="slide" data-index="33">
+        <img src="assets/Moon34.webp" alt="Moon 34" loading="lazy">
+        <div class="overlay">Mi corazón siempre será tuyo, eternamente May 💕🌸</div>
+      </div>
+      <div class="slide" data-index="34">
+        <img src="assets/Moon35.webp" alt="Moon 35" loading="lazy">
+        <div class="overlay">Eres perfectísima en todito lo que haces, mi May 💗✨🌺</div>
+      </div>
+      <div class="slide" data-index="35">
+        <img src="assets/Moon36.webp" alt="Moon 36" loading="lazy">
+        <div class="overlay">Tu amor es el regalo más hermoso, mi May querida 💖🎀</div>
+      </div>
+      <div class="slide" data-index="36">
+        <img src="assets/Moon37.webp" alt="Moon 37" loading="lazy">
+        <div class="overlay">Eres mi mejor amiga, mi amor eterno, mi May adorada 🥰💗</div>
+      </div>
+      <div class="slide" data-index="37">
+        <img src="assets/Moon38.webp" alt="Moon 38" loading="lazy">
+        <div class="overlay">Gracias por hacer mi vida tan bella, mi niñita May 🌸💕</div>
+      </div>
+      <div class="slide" data-index="38">
+        <img src="assets/Moon39.webp" alt="Moon 39" loading="lazy">
+        <div class="overlay">Eres mi todo, mi mundo, mi May hermosa siempre 💗💞</div>
+      </div>
+      <div class="slide" data-index="39">
+        <img src="assets/Moon40.webp" alt="Moon 40" loading="lazy">
+        <div class="overlay">40 momentos... y sigues siendo mi amor eterno May 💗✨🌟</div>
+      </div>
+      <div class="slide" data-index="40">
+        <img src="assets/Moon41.webp" alt="Moon 41" loading="lazy">
+        <div class="overlay">Eres tan especial para mí, mi May preciosa y bella 🌺💖</div>
+      </div>
+      <div class="slide" data-index="41">
+        <img src="assets/Moon42.webp" alt="Moon 42" loading="lazy">
+        <div class="overlay">Te amo con cada latido de mi corazón, mi May 🥹💗🌸</div>
+      </div>
+      <div class="slide" data-index="42">
+        <img src="assets/Moon43.webp" alt="Moon 43" loading="lazy">
+        <div class="overlay">Eres mi inspiración cada día, mi niñita May adorada 💕✨</div>
+      </div>
+      <div class="slide" data-index="43">
+        <img src="assets/Moon44.webp" alt="Moon 44" loading="lazy">
+        <div class="overlay">Mi amor por ti es infinito e incondicional, mi May 💗💞</div>
+      </div>
+      <div class="slide" data-index="44">
+        <img src="assets/Moon45.webp" alt="Moon 45" loading="lazy">
+        <div class="overlay">Eres la persona más hermosa del universo, mi May 🌸💖🥰</div>
+      </div>
+      <div class="slide" data-index="45">
+        <img src="assets/Moon46.webp" alt="Moon 46" loading="lazy">
+        <div class="overlay">Con tu amor todo es posible, mi May celestial bella 💗🌙</div>
+      </div>
+      <div class="slide" data-index="46">
+        <img src="assets/Moon47.webp" alt="Moon 47" loading="lazy">
+        <div class="overlay">Eres mi favorita en absolutamente todo, mi May 💕🌺✨</div>
+      </div>
+      <div class="slide" data-index="47">
+        <img src="assets/Moon48.webp" alt="Moon 48" loading="lazy">
+        <div class="overlay">Siempre seré tuyo, siempre te amaré, mi May querida 💗🎀</div>
+      </div>
+      <div class="slide" data-index="48">
+        <img src="assets/Moon49.webp" alt="Moon 49" loading="lazy">
+        <div class="overlay">Casi al final... y mi amor sigue creciendo, mi May 🥹💗🌸</div>
+      </div>
+      <div class="slide" data-index="49">
+        <img src="assets/Moon50.webp" alt="Moon 50" loading="lazy">
+        <div class="overlay">Te amo infinitash eternidades, mi bellíshima May, siempre!! HEHE (≧▽≦) 💗💝✨🎀</div>
+      </div>
+
+    </div><!-- /carousel -->
+
+    <!-- Botón siguiente -->
+    <button class="nav-btn next-btn" id="nextBtn" aria-label="Siguiente">
+      <span class="nav-arrow">❯</span>
+    </button>
+  </div><!-- /gallery-wrap -->
+
+  <!-- Indicador de progreso -->
+  <div class="progress-wrap">
+    <div class="progress-text" id="progressText">Imagen 1 de 50 💗</div>
+    <div class="progress-bar-outer">
+      <div class="progress-bar-inner" id="progressBar"></div>
+    </div>
+  </div>
+
+  <!-- Puntos indicadores -->
+  <div class="dots-container" id="dotsContainer"></div>
+
+  <!-- ========== REPRODUCTOR DE MÚSICA ========== -->
+  <div class="music-player" id="musicPlayer">
+    <div class="music-player-header">
+      <span class="music-note-deco">🎀</span>
+      <span class="music-title-label">Música para May</span>
+      <span class="music-note-deco">🎀</span>
+    </div>
+
+    <div class="music-song-info">
+      <div class="music-song-name" id="songName">♪ Mi canción para ti ♪</div>
+      <div class="music-song-num" id="songNum">1 / 8</div>
+    </div>
+
+    <div class="music-progress-wrap">
+      <span class="music-time" id="currentTime">0:00</span>
+      <div class="music-progress-bar" id="musicProgressBar">
+        <div class="music-progress-fill" id="musicProgressFill"></div>
+        <div class="music-progress-thumb" id="musicProgressThumb"></div>
+      </div>
+      <span class="music-time" id="totalTime">0:00</span>
+    </div>
+
+    <div class="music-controls">
+      <button class="music-ctrl-btn" id="prevSongBtn" title="Canción anterior">⏮</button>
+      <button class="music-ctrl-btn music-play-btn" id="playPauseBtn" title="Play/Pause">▶</button>
+      <button class="music-ctrl-btn" id="nextSongBtn" title="Siguiente canción">⏭</button>
+    </div>
+
+    <div class="music-volume-wrap">
+      <span class="music-vol-icon">🔈</span>
+      <input type="range" class="music-volume-slider" id="volumeSlider" min="0" max="1" step="0.01" value="0.7">
+      <span class="music-vol-icon">🔊</span>
+    </div>
+
+    <audio id="audioPlayer"></audio>
+  </div>
+
+  <!-- Toggle minimizar música -->
+  <button class="music-toggle-btn" id="musicToggleBtn" title="Mostrar/ocultar reproductor">🎵</button>
+
+</div><!-- /mainPortfolio -->
+
+<!-- Canvas para partículas -->
+<canvas id="particlesCanvas"></canvas>
+
+<script src="script.js"></script>
+</body>
+</html>
